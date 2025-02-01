@@ -1,41 +1,411 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="pt-BR">
 <head>
-  <meta charset="utf-8" />
-  <link rel="icon" href="https://telegra.ph/file/c9b04497123da4cb28578.jpg" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="theme-color" content="#000000" />
-  <meta name="description" content="Web site created using create-react-app" />
-  <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-  <title>Clinica Fisio E Forma</title>
-  <meta name="description" content="Self Developed personal website build with React.js">
-
-  <!-- Google / Search Engine Tags -->
-  <meta itemprop="name" content="Clinica Fisio E Forma">
-  <meta itemprop="description" content="Self Developed personal website build with React.js">
-  <meta itemprop="image"
-    content="https://raw.githubusercontent.com/soumyajit4419/Portfolio/master/Images/readme-img.png?token=AK7VCIF5RYEUZZAURELPTAC76U6AK">
-
-  <!-- Facebook Meta Tags -->
-  <meta property="og:url" content="https://soumyajit.vercel.app">
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="S0umyajit | Portfolio">
-  <meta property="og:description" content="Self Developed personal website build with React.js">
-  <meta property="og:image"
-    content="https://raw.githubusercontent.com/soumyajit4419/Portfolio/master/Images/readme-img.png?token=AK7VCIF5RYEUZZAURELPTAC76U6AK">
-
-  <!-- Twitter Meta Tags -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="S0umyajit | Portfolio">
-  <meta name="twitter:description" content="Self Developed personal website build with React.js">
-  <meta name="twitter:image"
-    content="https://raw.githubusercontent.com/soumyajit4419/Portfolio/master/Images/readme-img.png?token=AK7VCIF5RYEUZZAURELPTAC76U6AK">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Surpresa para Manoela</title>
+  <!-- Ícones FontAwesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    /* Reset e Box Sizing */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    /* Estilos Globais */
+    body {
+      background: linear-gradient(135deg, #2c3e50, #000000);
+      font-family: 'Roboto', sans-serif;
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      flex-direction: column;
+      padding: 20px;
+      overflow-x: hidden;
+      position: relative;
+    }
+    /* Container Principal */
+    .container {
+      width: 90%;
+      max-width: 600px;
+      background: rgba(0, 0, 0, 0.6);
+      border-radius: 15px;
+      padding: 30px 20px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+      text-align: center;
+      animation: scaleIn 1s ease-out;
+      margin-bottom: 20px;
+      position: relative;
+      overflow: hidden;
+    }
+    @keyframes scaleIn {
+      from { transform: scale(0.8); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+    /* Títulos */
+    h1 {
+      font-family: 'Dancing Script', cursive;
+      font-size: 2.8rem;
+      margin-bottom: 10px;
+      color: #ff77a9;
+      text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+      animation: fadeInDown 1s ease;
+    }
+    h2 {
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+      animation: fadeInUp 1s ease;
+    }
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    /* Formulário do Quiz */
+    form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    form div {
+      width: 100%;
+      margin: 15px 0;
+      animation: fadeIn 1.2s ease;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    select, input[type="text"] {
+      width: 100%;
+      padding: 10px;
+      margin-top: 8px;
+      border: none;
+      border-radius: 8px;
+      background: #444;
+      color: #fff;
+      font-size: 16px;
+      transition: box-shadow 0.3s ease, transform 0.2s ease;
+    }
+    select:focus, input[type="text"]:focus {
+      outline: none;
+      box-shadow: 0 0 10px rgba(255, 119, 169, 0.8);
+      transform: scale(1.02);
+    }
+    /* Botão Animado */
+    button {
+      padding: 15px 30px;
+      font-size: 1.2rem;
+      border: none;
+      border-radius: 30px;
+      background: linear-gradient(135deg, #ff416c, #ff4b2b);
+      color: #fff;
+      cursor: pointer;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      animation: pulse 2s infinite;
+      margin: 20px auto 0 auto;
+      display: block;
+    }
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+    button:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 20px rgba(255, 75, 43, 0.8);
+    }
+    /* Tooltip para dica */
+    .tooltip {
+      position: relative;
+      display: inline-block;
+      margin-left: 5px;
+      cursor: pointer;
+      font-size: 0.8rem;
+      color: #ccc;
+    }
+    .tooltip .tooltiptext {
+      visibility: hidden;
+      width: 220px;
+      background-color: #555;
+      color: #fff;
+      text-align: center;
+      border-radius: 6px;
+      padding: 5px;
+      position: absolute;
+      z-index: 1;
+      bottom: 125%; /* posição acima */
+      left: 50%;
+      margin-left: -110px;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .tooltip:hover .tooltiptext {
+      visibility: visible;
+      opacity: 1;
+    }
+    /* Div Oculta */
+    .hidden {
+      display: none;
+    }
+    /* Tela de Surpresa com Animações em Loop */
+    #surprise {
+      animation: fadeIn 1.5s ease;
+      position: relative;
+      /* Fundo animado em gradiente */
+      background: linear-gradient(135deg, #000000, #2c3e50);
+      background-size: 400% 400%;
+      animation: gradientShift 10s ease infinite;
+    }
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    .surprise-message {
+      margin: 20px 0;
+      font-size: 1.2rem;
+      line-height: 1.5;
+      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+      animation: textAnim 2s ease;
+      position: relative;
+      z-index: 2;
+    }
+    @keyframes textAnim {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    /* Efeito gradiente no texto "Dias que penso em voce" */
+    .gradient-text {
+      font-family: 'Dancing Script', cursive;
+      font-size: 2rem;
+      background: linear-gradient(45deg, #ff416c, #ff4b2b, #ff77a9);
+      background-size: 200% 200%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: gradientAnimation 3s ease infinite;
+      margin: 20px 0;
+    }
+    @keyframes gradientAnimation {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    /* Ícones com animações adicionais */
+    .icon {
+      font-size: 2.5rem;
+      margin: 10px;
+      color: #ff416c;
+      animation: bounce 1.5s infinite, rotateIcon 6s linear infinite;
+    }
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+    @keyframes rotateIcon {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    /* Elementos flutuantes extras na tela de surpresa */
+    .floating {
+      position: absolute;
+      opacity: 0.7;
+      font-size: 3rem;
+      animation: floatLoop 5s ease-in-out infinite;
+      color: rgba(255, 255, 255, 0.3);
+      z-index: 1;
+    }
+    @keyframes floatLoop {
+      0% { transform: translate(0, 0); }
+      50% { transform: translate(20px, -20px); }
+      100% { transform: translate(0, 0); }
+    }
+    /* Estilo e animação do calendário com efeito flip */
+    .calendar {
+      font-size: 1.5rem;
+      font-family: 'Roboto', sans-serif;
+      margin: 20px 0;
+      display: inline-block;
+      perspective: 1000px;
+      position: relative;
+      z-index: 2;
+    }
+    .calendar.flip {
+      animation: flip 0.6s ease;
+    }
+    @keyframes flip {
+      0% { transform: rotateX(0deg); }
+      50% { transform: rotateX(90deg); }
+      100% { transform: rotateX(0deg); }
+    }
+    /* Responsividade */
+    @media (max-width: 480px) {
+      h1 {
+        font-size: 2.2rem;
+      }
+      h2 {
+        font-size: 1.5rem;
+      }
+      .container {
+        padding: 20px 15px;
+      }
+      button {
+        font-size: 1rem;
+        padding: 12px 20px;
+      }
+      .surprise-message, .calendar, .gradient-text {
+        font-size: 1rem;
+      }
+    }
+  </style>
 </head>
-
 <body>
-  <noscript>You need to enable JavaScript to run this app.</noscript>
-  <div id="root"></div>
-</body>
+  <!-- Quiz Container -->
+  <div class="container" id="quizContainer">
+    <h1>Surpresa para Manoela</h1>
+    <h2>Descubra o segredo do Felipe!</h2>
+    <form id="quizForm">
+      <div>
+        <h3>1. Entre gato e cachorro, o que o Felipe prefere?</h3>
+        <select id="q1" onchange="responde('q1')">
+          <option value="">Selecione</option>
+          <option value="cachorro">Cachorro</option>
+          <option value="gato">Gato</option>
+        </select>
+      </div>
+      <div>
+        <h3>2. Entre melancia e maçã, qual é a preferida dele?</h3>
+        <select id="q2" onchange="responde('q2')">
+          <option value="">Selecione</option>
+          <option value="melancia">Melancia</option>
+          <option value="maçã">Maçã</option>
+        </select>
+      </div>
+      <div>
+        <h3>3. Onde ele prefere morar?</h3>
+        <select id="q3" onchange="responde('q3')">
+          <option value="">Selecione</option>
+          <option value="fronteira">Fronteira</option>
+          <option value="sorocaba">Sorocaba</option>
+        </select>
+      </div>
+      <div>
+        <h3>
+          4. Qual a frase que ele mais diz para você quando estão longe?
+          <span class="tooltip">?
+            <span class="tooltiptext">Efeito colateral de ficar longe de você</span>
+          </span>
+        </h3>
+        <input type="text" id="q4" placeholder="Digite aqui sua resposta..." oninput="responde('q4')" />
+      </div>
+      <button type="button" onclick="showSurprise()">Enviar</button>
+    </form>
+  </div>
 
+  <!-- Surpresa -->
+  <div class="container hidden" id="surprise">
+    <!-- Tag de Áudio (opcional) -->
+    <audio id="surpriseAudio" src="./som.mp3"></audio>
+    <!-- Elementos flutuantes extras -->
+    <div class="floating" style="top:10%; left:5%;"><i class="fas fa-star"></i></div>
+    <div class="floating" style="bottom:15%; right:10%; font-size:2.5rem;"><i class="fas fa-moon"></i></div>
+    <div class="floating" style="top:50%; left:80%; font-size:3.2rem;"><i class="fas fa-sparkles"></i></div>
+    
+    <div class="surprise-message">
+      <i class="fas fa-heart icon"></i>
+      <p>Manoela, fiz essa brincadeira no tédio 💖</p>
+      <p>
+        E pra provar, que até no tédio, o que mais penso é em você. Me perdoa por às vezes ser lerdo kkkkk para fazer isso aqui, essa surpresinha, foi um total de 7 dias de criação durante momentos de tédio, mas o que importa, é te surpreender!
+      </p>
+      <i class="fas fa-kiss-wink-heart icon"></i>
+    </div>
+    
+    <!-- Calendário com efeito flip e contador infinito -->
+    <div id="calendarAnimation" class="calendar">Dia 1</div>
+    
+    <!-- Texto com efeito gradiente -->
+    <div class="gradient-text">Dias que penso em voce</div>
+    
+    <button onclick="abrirWhatsApp()">Outra surpresa</button>
+  </div>
+
+  <!-- Canvas para confetes -->
+  <canvas id="confettiCanvas" style="position:absolute; top:0; left:0; pointer-events:none;"></canvas>
+
+  <!-- Script de canvas-confetti -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+  <script>
+    // Feedback visual ao selecionar ou digitar resposta
+    function responde(id) {
+      const element = document.getElementById(id);
+      element.style.border = "2px solid #ff416c";
+      setTimeout(() => {
+        element.style.border = "none";
+      }, 500);
+    }
+    
+    // Ao revelar a surpresa, dispara confetes e (opcional) reproduz áudio
+    function showSurprise() {
+      document.getElementById("quizContainer").classList.add("hidden");
+      document.getElementById("surprise").classList.remove("hidden");
+      
+      // Dispara confetes
+      confetti({
+        particleCount: 150,
+        spread: 70,
+        origin: { y: 0.6 }
+      });
+      
+      // Se desejar, toque o áudio
+      const audio = document.getElementById("surpriseAudio");
+      if(audio) {
+        audio.play().catch(() => { /* Alguns navegadores podem bloquear autoplay */ });
+      }
+    }
+    
+    function abrirWhatsApp() {
+      window.open("https://wa.me/+13159084777?text=Tbm%20te%20amo", "_blank");
+    }
+    
+    // Ajuste o canvas de confete para ocupar a tela toda
+    function resizeCanvas() {
+      const canvas = document.getElementById("confettiCanvas");
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+    window.addEventListener('resize', resizeCanvas);
+    resizeCanvas();
+    
+    // Calendário: contador infinito com efeito flip
+    let currentDay = 1;
+    const calendarEl = document.getElementById("calendarAnimation");
+    
+    function updateCalendar() {
+      // Adiciona classe para o efeito de flip
+      calendarEl.classList.add("flip");
+      
+      // Aguarda metade da animação para atualizar o conteúdo
+      setTimeout(() => {
+        currentDay++;
+        calendarEl.textContent = "Dia " + currentDay;
+      }, 300);
+      
+      // Remove a classe para que o flip possa ser aplicado novamente
+      setTimeout(() => {
+        calendarEl.classList.remove("flip");
+      }, 600);
+    }
+    
+    // Atualiza o calendário a cada 1 segundo (ajuste conforme necessário)
+    setInterval(updateCalendar, 1000);
+  </script>
+</body>
 </html>
